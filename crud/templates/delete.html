@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<style>
+table, th, td {
+  border:1px solid black;
+}
+</style>
+
+<body>
+
+<h2>A basic HTML table</h2>
+
+<table style="width:100%">
+
+<thead>
+    <tr>
+        <th>Id</th>   
+        <th>Name</th>
+        <th>Last_name</th>
+        <th>Address</th>
+        <th>Description</th>
+        <th>Delivered</th>
+            
+    </tr>
+    </thead>
+  <tr>{% for i in data %}
+            <td>
+                {{i.id}}
+            </td>
+            <td>
+                {{i.name}}
+            </td>
+            
+            <td>
+                {{i.lastName}}
+            </td>
+            <td>
+                {{i.address}}
+            </td>
+            <td>
+                {{i.description}}
+            </td>
+            <td>
+                {{i.delivered}}
+            </td>
+        </tr>
+            {% endfor %}
+</table>
+
+
+<p>Forms data</p>
+<form method="POST">
+        <!-- Security token by Django -->
+        {% csrf_token %}
+ 
+        <!-- form as paragraph -->
+        {{ form.as_p }}
+ 
+        <input type="submit" value="Delete">
+    </form>
+</body>
+</html>

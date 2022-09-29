@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>Working with CRUD </h2>
+
+<form method = "post">  
+
+{% csrf_token %}
+
+ {{ form.as_p }} 
+ <input type = "submit" value ="Submit">
+</form> 
+
+<style>
+table, th, td {
+  border:1px solid black;
+}
+</style>
+<body>  
+<h2>A basic HTML table</h2>
+<table style="width:100%">
+
+<thead>
+    <tr>
+        <th>Id</th>    
+        <th>Name</th>
+        <th>Last_name</th>
+        <th>Address</th>
+        <th>Description</th>
+        <th>Delivered</th>
+        <th>Update</th>
+        <th>Delete</th>      
+    </tr>
+    </thead>
+{% comment %} <div class="tbl-content"> {% endcomment %}
+  {% comment %} <table cellpadding="0" cellspacing="0" border="0"> {% endcomment %}
+    {% comment %} <tbody> {% endcomment %}
+          <tr>{% for i in data %}
+            
+            <td>
+                {{i.id}}
+            </td>
+            
+            <td>
+                {{i.name}}
+            </td>
+            
+            <td>
+                {{i.lastName}}
+            </td>
+            <td>
+                {{i.address}}
+            </td>
+            <td>
+                {{i.description}}
+            </td>
+            <td>
+                {{i.delivered}}
+            </td>
+            <td>
+                <a href="/crud/update/{{i.pk}}">Update</a>
+            </td>
+            <td>
+                <a href="/crud/delete/{{i.id}}">Delete</a>
+            </td>
+           </tr>
+            {% endfor %}
+        {% comment %} </tbody> {% endcomment %}
+      </table>
+    {% comment %} </div> {% endcomment %}
+</table>
+<p>Forms data</p>
+
+</body>
+</html>
